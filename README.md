@@ -1,4 +1,4 @@
-# EmotionBot 
+# Emotionbot 
 Emotionbot, kullanıcıların duygu durumlarına göre web 
 sitesinin tasarımını ve önerilen çalma listesini otomatik olarak 
 değiştiren bir web uygulamasıdır. HTML, CSS, JavaScript ile 
