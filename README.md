@@ -62,8 +62,7 @@ emotionbot/
 └── README.md               # Proje hakkında bilgi
 ```
 
-## Lisans
-Bu proje MIT lisansı altında sunulmaktadır.
+
 
 ---
 ## Sunum
