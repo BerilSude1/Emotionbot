@@ -7,12 +7,12 @@ import base64
 app = Flask(__name__)
 
 # Spotify API Bilgileri
-SPOTIFY_CLIENT_ID = '58e4be93d83a4efdbeaf2b21a7f714e8'  # Spotify uygulamanızın Client ID'si
-SPOTIFY_CLIENT_SECRET = 'dd5436f4093e4837bbf70c5aeaf5fa43'  # Spotify uygulamanızın Client Secret'i
+SPOTIFY_CLIENT_ID = 'Spotify uygulamanızın Client IDsini girin' #spotify uygulamanızın Client IDsini girin
+SPOTIFY_CLIENT_SECRET = 'Spotify uygulamanızın Client Secret ini girin' #spotify uygulamanızın Client Secret'ini girin
 SPOTIFY_PLAYLISTS = {
-    'Happy': '37i9dQZF1DX5H8QSpChffy',  # Mutlu şarkılar playlistinin ID'si 
-    'Sad': '37i9dQZF1DWXLdhiQTrZDp',  # Üzgün şarkılar playlistinin ID'si 
-    'Neutral': '37i9dQZF1DWVHdYf9Bwcjq'  # Nötr şarkılar playlistinin ID'si
+    'Happy': '37i9dQZF1DX5H8QSpChffy',  # mutlu şarkılar playlistinin ID'si 
+    'Sad': '37i9dQZF1DWXLdhiQTrZDp',  # üzgün şarkılar playlistinin ID'si 
+    'Neutral': '37i9dQZF1DWVHdYf9Bwcjq'  # nötr şarkılar playlistinin ID'si
 }
 
 def get_spotify_token():
