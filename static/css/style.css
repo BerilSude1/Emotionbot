@@ -1,0 +1,348 @@
+
+/*body*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eee;
+    background-size: 100% 160%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.5s, background-image 0.5s;
+}
+
+
+.chat-container {
+    background-color: hsla(310, 56%, 40%, 0.484);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 80px hsl(311, 75%, 58%);
+    width: 350px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    
+    
+}
+
+/*mesajlar*/
+.messages {
+    max-height: 100px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/*mesajlar için stiller*/
+.message {
+    padding: 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/*kullanıcı mesajları*/ /**/
+.message.user {
+    background-color: #d1e7dd;
+    text-align: right;
+}
+
+/*bot mesajı*/
+.message.bot {
+    background-color: #f8d7da;
+    text-align: left;
+}
+
+textarea {
+    width: 100%;
+    padding: 20px;
+    border-radius: 100px;
+    border: 3px solid #be26c652;
+    font-size: 23px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.playlist-container {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/*görsellerin kontrolleri*/
+.img-cntrl{
+    display:flex;
+    gap:10px;  
+}
+
+/*not: önceki ve sonraki butonları için ayrı ayrı kodlanmasına gerek yoktur*/
+/*butonunun stilleri*/
+.image-controls {
+    background:#ffffff2b;
+    border: 2px solid #2c3e50;
+    font-size: 14px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    padding: 12px 25px;
+    min-width: 50px;
+    margin:10px;
+    cursor: pointer;
+    position: relative;
+    transition:color 0.4s linear;
+    
+    
+}
+.image-controls:hover{
+    color: #FFF;
+}
+.image-controls::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #2c3e50;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+
+}
+.image-controls::before{
+    transform: scaleX(0);
+}
+
+.image-controls:hover::before{
+    transform:scaleX(1);
+}
+/*butonunun stilleri*/
+.image-controls2 {
+    background:#ffffff2b;
+    border: 2px solid #2c3e50;
+    font-size: 14px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    min-width: 50px;
+    margin:10px;
+    cursor: pointer;
+    position: relative;
+    transition:color 0.4s linear;
+    
+}
+.image-controls2:hover{
+    color: #FFF;
+}
+.image-controls2::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #2c3e50;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+
+}
+.image-controls2::before{
+    transform: scaleX(0);
+}
+
+.image-controls2:hover::before{
+    transform:scaleX(1);
+}
+
+/*decode text*/
+.decode-text {
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.space {
+    display: inline-block;
+    width: 10px;
+}
+
+/*text animasyonu*/
+.text-animation {
+    display: inline-block;
+    position: relative;
+    color: transparent;
+    text-transform: uppercase;
+}
+
+.text-animation:before {
+    content: "";
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #0e182d;
+    width: 0;
+    height: 1.2em;
+    transform: translate(-50%, -55%);
+}
+
+/*text animasyonunun durumları*/
+.text-animation.state-1:before {
+    width: 5px;
+}
+
+.text-animation.state-2:before {
+    width: 0.9em;
+}
+
+.text-animation.state-3 {
+    color: rgb(67, 3, 59);
+    font-size: 35px;
+    font-weight:900;   
+}
+
+.text-animation.state-3:before {
+    width: 0;
+
+}
+
+/*genel div ve yazı stili*/
+div {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.text {
+    display: inline-block;
+    position: relative;
+}
+
+.text span {
+    display: inline-block;
+    animation-name: color-text-flow-keys;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+/* link stili */
+a {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #eee;
+    font-size: 15px;
+    line-height: 10px;
+}
+
+/*container için stiller: uygulamadaki açıklama metni*/
+.container { 
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: large;
+    font-weight: 400;
+    text-shadow:100px 100px 100px white;
+    
+}
+
+/*animasyonda renk değişimi (açıklama yazısı için)*/
+@keyframes color-text-flow-keys {
+    0% {
+        color: #692646;
+    }
+
+    5% {
+        color: #328539;
+    }
+
+    10% {
+        color: #40175c;
+    }
+
+    15% {
+        color: #5274d0;
+    }
+
+    20% {
+        color: #df4068;
+    }
+
+    25% {
+        color: #88e361;
+    }
+
+    30% {
+        color: #4b357b;
+    }
+
+    35% {
+        color: #6f63e2;
+    }
+
+    40% {
+        color: #69abe5;
+    }
+
+    45% {
+        color: #459f54;
+    }
+
+    50% {
+        color: #ad3933;
+    }
+
+    55% {
+        color: #c27957;
+    }
+
+    60% {
+        color: #951f1b;
+    }
+
+    65% {
+        color: #b530d6;
+    }
+
+    70% {
+        color: #538de3;
+    }
+
+    75% {
+        color: #71a346;
+    }
+
+    80% {
+        color: #91622e;
+    }
+
+    85% {
+        color: #773347;
+    }
+
+    90% {
+        color: #24972d;
+    }
+
+    95% {
+        color: #9a4929;
+    }
+
+    100% {
+        color: #347a2f;
+    }
+}
+
+/*animasyon yazısının stili (açıklama yazısı)*/
+.color-text-flow {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:bold;
+    font-size:15px;
+    text-shadow: -2px -2px 2px rgba(255, 255, 255, 0.568); /* Beyaz gölge */
+}

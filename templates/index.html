@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotionbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    
+    <div id="response"></div>
+
+    <div class="decode-text">
+        <div class="text-animation">E</div>
+        <div class="text-animation">M</div>
+        <div class="text-animation">O</div>
+        <div class="text-animation">T</div>
+        <div class="text-animation">I</div>
+        <div class="text-animation">O</div>
+        <div class="text-animation">N</div>
+        <div class="text-animation">B</div>
+        <div class="text-animation">O</div>
+        <div class="text-animation">T</div>
+        <div class="space"></div>
+    </div>
+    <div div class="container">
+        <div class="text">
+            <span class="color-text-flow">Merhaba!</span>
+            <span class="color-text-flow">Emotionbot</span>
+            <span class="color-text-flow">ile</span>
+            <span class="color-text-flow">tanışın.</span>
+            <br><span class="color-text-flow">Emotionbot</span>
+            <span class="color-text-flow">ruh</span>
+            <span class="color-text-flow">halinize</span>
+            <span class="color-text-flow">göre</span>
+            <span class="color-text-flow">(happy, sad ,neutral)</span>
+            <span class="color-text-flow">web</span>
+            <span class="color-text-flow">sitesini</span>
+            <span class="color-text-flow">yeniden</span>
+            <span class="color-text-flow">tasarlar</span>
+            <span class="color-text-flow">ve</span>
+            <br> <span class="color-text-flow">çalma</span>
+            <span class="color-text-flow">listesi</span>
+            <span class="color-text-flow">önerir!</span>
+            <span class="color-text-flow">Lütfen</span>
+            <span class="color-text-flow">anlatım</span>
+            <span class="color-text-flow">diliniz</span>
+            <span class="color-text-flow">ingilizce</span>
+            <span class="color-text-flow">olsun.</span>
+        </div>
+    </div>
+<div class="chat-container">
+    <div id="messages" class="messages"></div>
+    <textarea id="user-input" placeholder="Type your message here..."></textarea>
+    <div id="playlist-container" class="playlist-container"></div>
+</div>
+
+<div class="img-cntrl">
+    <div class="image-controls" id="prev-image">Önceki Fotoğraf</div>
+    <div class="image-controls2" id="next-image">Sonraki Fotoğraf</div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script> 
+</body>
+</html>

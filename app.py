@@ -1,13 +1,14 @@
 import random
 import requests
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory,render_template
 from textblob import TextBlob
+import base64
 
 app = Flask(__name__)
 
 # Spotify API Bilgileri
-SPOTIFY_CLIENT_ID = 'Spotify uygulamanızın Client IDsini girin' #Spotify uygulamanızın Client IDsini girin
-SPOTIFY_CLIENT_SECRET = 'Spotify uygulamanızın Client Secret ini girin'  #Spotify uygulamanızın Client Secret'ini girin
+SPOTIFY_CLIENT_ID = '58e4be93d83a4efdbeaf2b21a7f714e8'  # Spotify uygulamanızın Client ID'si
+SPOTIFY_CLIENT_SECRET = 'dd5436f4093e4837bbf70c5aeaf5fa43'  # Spotify uygulamanızın Client Secret'i
 SPOTIFY_PLAYLISTS = {
     'Happy': '37i9dQZF1DX5H8QSpChffy',  # Mutlu şarkılar playlistinin ID'si 
     'Sad': '37i9dQZF1DWXLdhiQTrZDp',  # Üzgün şarkılar playlistinin ID'si 
@@ -23,16 +24,22 @@ def get_spotify_token():
         'grant_type': 'client_credentials'
     }
     response = requests.post(url, headers=headers, data=data)
-    return response.json().get('access_token')
-        
+    return response.json().get('access_token')  
     
 
 def get_playlist_embed_url(playlist_id):
     return f'https://open.spotify.com/embed/playlist/{playlist_id}?utm_source=generator&theme=0'
 
+'''@app.route('/')
+def home():
+    return send_from_directory('static', 'index.html')'''
+
+app = Flask(__name__)
+
 @app.route('/')
 def home():
-    return send_from_directory('.', 'index.html')
+    return render_template('index.html')  # 'index.html' dosyasını templates klasöründen yükler
+
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -49,6 +56,7 @@ def chat():
     playlist_url = get_playlist_embed_url(playlist_id)
 
     return jsonify(reply=f"{recommendation} Playlist:", color=color, playlist_url=playlist_url)
+
 
 def analyze_sentiment(text): 
     analysis = TextBlob(text)
@@ -67,10 +75,14 @@ def get_recommendation(sentiment):
     else:
         return 'Neutral', '#9E9E9E'  # Gri
 
-@app.route('/images/<path:filename>')
+@app.route('/static/images/<path:filename>')
 def serve_image(filename):
-    return send_from_directory('images', filename)
+    return send_from_directory('static/images', filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
 
